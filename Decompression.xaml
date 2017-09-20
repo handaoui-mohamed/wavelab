@@ -1,0 +1,136 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.Decompress"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      EnableDWMDropShadow="True"
+                      Title="Décompression" 
+                      Height="342" 
+                      Width="704.5" 
+                      WindowStartupLocation="CenterScreen" 
+                      BorderThickness="0" 
+                      ResizeMode="CanMinimize" KeyDown="helpF1"  >
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+
+            <Button  ToolTip="Aide et Conseils" Click="tips_Click" MouseEnter="helpEnter" MouseLeave="helpLeave">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Name="imgHelp" Width="20" Height="26"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_book_perspective_help}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Aide" />
+                </StackPanel>
+            </Button>
+           
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid Margin="0,0,0,-29" >
+        <StatusBar HorizontalAlignment="Left" Height="378" Margin="-4,0,-22,0" VerticalAlignment="Top" Width="726">
+        </StatusBar>
+
+        <Image Source="Resources\5.png" Stretch="Fill" Opacity="0.5" MouseLeftButtonDown="moveWindow" Margin="0,-56,0,0"/>
+
+        <TextBlock x:Name="text" HorizontalAlignment="Left" Margin="500,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Images" Visibility="Hidden" HorizontalAlignment="Left" Margin="601,160,0,0" VerticalAlignment="Top" Width="78" Height="32" Click="Fichier">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+
+        <Button Content="Quitter" Margin="0,264,84,0" Height="38" VerticalAlignment="Top" HorizontalAlignment="Right" Width="114" Click="Quitter"/>
+        <Button Content="Decompresser" Margin="148,264,0,0" VerticalAlignment="Top" Height="38" Click="decompressionButton" HorizontalAlignment="Left" Width="114">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <ProgressBar x:Name="progressBar" HorizontalAlignment="Left" Height="10" Margin="566,404,0,0" VerticalAlignment="Top" Width="100" Maximum="150" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+        <ComboBox x:Name="filtres" HorizontalAlignment="Left" Margin="98,98,0,0" VerticalAlignment="Top" Width="128" Height="25" Foreground="White">
+            <ComboBox.BorderBrush>
+                <ImageBrush/>
+            </ComboBox.BorderBrush>
+            <ComboBoxItem Content="Filtre 2/6"/>
+            <ComboBoxItem Content="Filtre 5-3"/>
+            <ComboBoxItem Content="Filtre A(1,1)"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="-4,99,0,0" TextWrapping="Wrap" Text="Filtres : " VerticalAlignment="Top" Height="25" Width="122" Foreground="White" TextAlignment="Center" FontSize="16"/>
+        <ComboBox x:Name="niveaux" HorizontalAlignment="Left" Height="25" Margin="353,98,0,0" VerticalAlignment="Top" Width="100">
+            <ComboBox.BorderBrush>
+                <ImageBrush/>
+            </ComboBox.BorderBrush>
+            <ListBoxItem Content="1"/>
+            <ListBoxItem Content="2"/>
+            <ListBoxItem Content="3"/>
+            <ListBoxItem Content="4"/>
+            <ListBoxItem Content="5"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="231,98,0,0" TextWrapping="Wrap" Text="Niveaux : " VerticalAlignment="Top" Height="25" Width="122" Foreground="White" TextAlignment="Center" FontSize="16"/>
+        <TextBlock  x:Name="enCours2"  HorizontalAlignment="Left" Margin="223,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="277" Foreground="White" TextAlignment="Center" FontSize="16" Text="Remplissez les informations demandées"/>
+        <TextBox Name="savePath" HorizontalAlignment="Left" Height="32" Margin="10,217,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="627">
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <Button Content="Enregistrer" Visibility="Hidden" HorizontalAlignment="Left" Margin="601,212,0,0" VerticalAlignment="Top" Width="78" Height="32" Click="Enregister_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="452,102,0,0" TextWrapping="Wrap" Text="Dimension : " VerticalAlignment="Top" Height="25" Width="122" Foreground="White" TextAlignment="Center" FontSize="16"/>
+        <ComboBox x:Name="dimension" HorizontalAlignment="Left" Height="25" Margin="579,98,0,0" VerticalAlignment="Top" Width="100">
+            <ComboBox.BorderBrush>
+                <ImageBrush/>
+            </ComboBox.BorderBrush>
+            <ListBoxItem Content="2D"/>
+            <ListBoxItem Content="3D"/>
+        </ComboBox>
+        <TextBox Name="imageSrc" HorizontalAlignment="Left" Height="32" Margin="10,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="627">
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <Label Content="Choisissez le chemin de la sauvegarde" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top"/>
+        <Label Content="Choisissez les images a décompresser" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <Button  HorizontalAlignment="Left" Margin="642,152,0,0" VerticalAlignment="Top" Width="46" Height="47" Style="{DynamicResource MetroCircleButtonStyle}" Click="Fichier">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Rectangle  Name="imgImage" Width="25" Height="25"
+                   Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" MouseEnter="openEnter" MouseLeave="openLeave">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_image}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </StackPanel>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button  HorizontalAlignment="Left" Margin="642,211,0,0" VerticalAlignment="Top" Width="46" Height="47" Style="{DynamicResource MetroCircleButtonStyle}" Click="Enregister_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Name="imgSave" Width="25" Height="25"
+                   Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" MouseEnter="saveEnter" MouseLeave="saveLeave">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_save}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>

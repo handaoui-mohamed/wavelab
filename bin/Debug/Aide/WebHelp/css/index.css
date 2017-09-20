@@ -1,0 +1,286 @@
+﻿
+* { 
+  font-family: verdana;
+  font-size: 9pt;
+}
+body {
+  padding: 0; 
+  margin: 0; 
+}
+iframe, .fill {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 0px solid #ffff00;
+  background-image: none;
+  background-color: transparent;
+}
+#header {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  height: 74px;
+}
+#sp {
+  position: absolute;
+  left: 318px;
+  width: 6px;
+  top: 80px;
+  bottom: 26px;
+  border: 0px;
+  background-color: black;
+  filter:alpha(opacity=1);
+  -moz-opacity: 0.01;
+  -khtml-opacity: 0.01;
+  opacity: 0.01;
+}
+#sp.active {
+  background-color: black;
+  filter:alpha(opacity=30);
+  -moz-opacity: 0.3;
+  -khtml-opacity: 0.3;
+  opacity: 0.3;
+}
+#sp-ov {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  display: none;
+  cursor: e-resize;
+  background-color: black;
+  filter:alpha(opacity=1);
+  -moz-opacity: 0.01;
+  -khtml-opacity: 0.01;
+  opacity: 0.01;
+}
+#toc {
+  position: absolute;
+  left: 2px;
+  width: 316px;
+  top: 80px;
+  bottom: 26px;
+}
+#toc .toc-body {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 32px;
+  bottom: 0px;
+  padding: 10px;
+  overflow: auto;
+}
+.search-toc-body {
+  padding: 10px 10px 10px 10px;
+}
+#toc .ui-tabs {
+  border: 0;
+}
+#toc .ui-tabs .ui-tabs-panel {
+  padding: 0;
+}
+#body {
+  position: absolute;
+  left: 322px;
+  right: 2px;
+  top: 80px;
+  bottom: 26px;
+}
+#crumbs {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 3px;
+  height: 22px;
+/*  background-color: transparent;
+  background-image: none;*/
+}
+#crumbs .fill {
+  overflow: hidden;  
+  padding: 3px 10px;
+}
+#footer {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  height: 20px;
+}
+#footer .fill {
+  overflow: hidden;  
+  padding: 3px 10px;
+  text-align: center;
+}
+#icons-left {
+  position: absolute;
+  right: 5px;
+  width: 64px;
+  bottom: 3px;
+  height: 64px;
+  overflow: hidden;
+}
+#icons-right {
+  position: absolute;
+  left: 5px;
+  width: 150px;
+  bottom: 3px;
+  height: 22px;
+  overflow: hidden;
+}
+#icons-right .icon, #search-keyword {
+  float: right;
+}
+#search-keyword {
+  width: 120px;
+  height: 18px;
+  padding: 0;
+  margin-right: 3px;
+}
+
+#title {
+  position: absolute;
+  font-size: 11pt;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  vertical-align: bottom;
+  margin: 5px;
+  text-align: center;
+}
+a.text:link, a.text:visited {
+  position: relative;
+  display: inline-block;
+  padding: 1px 3px;
+}
+a.text:link span.hover, a.text:visited span.hover {
+  position: absolute;
+  display: none;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  padding: 0px 2px;
+}
+a.text:hover span.hover {
+  position: absolute;
+  display: block;
+}
+a.icon, div.icon {
+  position: relative;
+  display: inline-block;
+  width: 23px;
+  height: 20px;
+}
+.icon div.icon1, 
+.icon div.icon2 {
+  position: absolute;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+}
+.icon .ui-icon {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  padding: 0;
+  margin: 0;
+}
+.icon div.icon2 {
+  display: none;
+}
+a.icon:hover div.icon2 {
+  display: inline-block;
+}
+a:link image {
+  border: 0;
+}
+div.preview {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+.ui-tabs .ui-tabs-nav li a {
+  padding: 5px 8px 2px 8px;
+}
+.ui-tabs .ui-tabs-nav {
+  padding: 2px 2px 0 2px;
+}
+.ui-tabs {
+  padding: 2px;
+}
+.search-tab b {
+  display: block;
+  padding: 1px 1px 3px 1px;
+  text-align: center;
+  width: 80px;
+  z-index:- 1;
+}
+.search-tab input {
+  position: absolute; 
+  #position: absolute; 
+  left: 1px; 
+  right: 1px; 
+  top: 1px; 
+  bottom: 1px; 
+  border: 0;
+  margin: 0px;
+  float: left;
+  font-weight: bold;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter:alpha(opacity=80);
+  opacity: .8;
+}
+
+.center-outer {
+  position: absolute; 
+  #position: absolute; 
+  display: table; 
+  left: 0; 
+  right: 0; 
+  top: 0; 
+  bottom:0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden;
+}
+.center-middle {
+  #position: absolute; 
+  #top: 50%;
+  display: table-cell; 
+  vertical-align: middle;
+}
+.center-inner {
+  #position: relative; 
+  #top: -50%; 
+  text-align: center;
+}
+.no-script {
+  color: red; 
+  background-color: yellow; 
+  font-size: 16pt; 
+  border: 3px solid red; 
+  padding: 10px;
+}
+img {
+  border: 0;
+}
+.tree-tool {
+  position: absolute;
+  right: 5px;
+  width: 48px;
+  top: 5px;
+  height: 22px;
+  overflow: hidden;
+}
+.tree-tool .icon {
+  float: right;
+}

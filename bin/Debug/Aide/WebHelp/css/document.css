@@ -1,0 +1,205 @@
+﻿
+ .MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	}
+h1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:16.0pt;
+	font-family:"Times New Roman",serif;
+	color:#5B9BD5;
+	}
+h2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:16.0pt;
+	font-family:"Times New Roman",serif;
+	color:#5B9BD5;
+	}
+h3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:red;
+	}
+.MsoNoSpacing
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	}
+.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	}
+.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	}
+.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	}
+.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	}
+span.Titre1Car
+	{font-family:"Times New Roman",serif;
+	color:#5B9BD5;
+	font-weight:bold;
+	}
+span.Titre2Car
+	{font-family:"Times New Roman",serif;
+	color:#5B9BD5;
+	font-weight:bold;
+	}
+span.Titre3Car
+	{font-family:"Times New Roman",serif;
+	color:red;
+	font-weight:bold;
+	}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;
+	}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ @list l0
+	{}
+@list l0:level1
+	{text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level5
+	{text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level6
+	{text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l0:level8
+	{text-indent:-18.0pt;
+	font-family:"Courier New";}
+@list l0:level9
+	{text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1
+	{}
+@list l1:level1
+	{text-indent:-18.0pt;}
+@list l1:level2
+	{text-indent:-18.0pt;}
+@list l1:level3
+	{text-indent:-9.0pt;}
+@list l1:level4
+	{text-indent:-18.0pt;}
+@list l1:level5
+	{text-indent:-18.0pt;}
+@list l1:level6
+	{text-indent:-9.0pt;}
+@list l1:level7
+	{text-indent:-18.0pt;}
+@list l1:level8
+	{text-indent:-18.0pt;}
+@list l1:level9
+	{text-indent:-9.0pt;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+
+.s26{font-family:symbol;;}
+.s11{font-size:12.0pt;;}
+.s12{font-size:14.0pt;line-height:107%;}
+.s3{font-size:16.0pt;line-height:107%;color:#5b9bd5;;}
+.s15{font-size:18.0pt;line-height:107%;}
+.s5{font-size:18.0pt;line-height:107%;;}
+.s20{font-size:22.0pt;line-height:107%;}
+.s17{font-size:26.0pt;line-height:107%;}
+.s18{font-size:26.0pt;line-height:107%;font-family:"arial",sans-serif;;}
+.s27{font:7.0pt "times new roman";}
+.s8{height:34.95pt;}
+.s13{margin-bottom:0cm;margin-bottom:.0001pt;}
+.s6{margin-bottom:3.7pt;text-align:center;}
+.s10{margin-bottom:3.7pt;text-align:center;line-height:normal;}
+.s1{margin-left:36.0pt;text-indent:-18.0pt;;}
+.s22{margin-top:0cm;margin-right:.25pt;margin-bottom:.15pt;margin-left:.5pt;text-align:center;text-indent:-.5pt;}
+.s14{margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:.5pt;margin-bottom:.0001pt;text-indent:-.5pt;}
+.s4{margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:103.85pt;margin-bottom:.0001pt;text-indent:-.5pt;}
+.s16{margin-top:0cm;margin-right:28.25pt;margin-bottom:0cm;margin-left:.5pt;margin-bottom:.0001pt;text-indent:-.5pt;}
+.s21{margin-top:0cm;margin-right:415.25pt;margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;}
+.s19{margin-top:0cm;margin-right:433.25pt;margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;}
+.s24{position:absolute;z-index:251659264;left:0px;margin-left:84px;margin-top:313px;width:84px;height:57px;}
+.s2{text-align:center;}
+.s25{text-indent:-18.0pt;;}
+.s23{text-line-through:double;}
+.s7{width:459.9pt;border-collapse:collapse;border:none;;}
+.s9{width:459.9pt;border:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:34.95pt;}
+
+.sub-title-fix {
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+}
+.heading-fix {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin: 0;
+  text-indent: 0;
+}

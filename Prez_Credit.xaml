@@ -1,0 +1,87 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.Prez_Credit"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      
+                      Title="" 
+                      Height="527.342" 
+                      Width="410.161" 
+                      WindowStartupLocation="CenterScreen" 
+                      BorderThickness="0" 
+                      ResizeMode="CanMinimize" 
+                      ShowTitleBar="True"
+                      Cursor="Pen">
+
+    <Window.Resources>
+
+        <!-- scroll viewer -->
+        <Style x:Key="ScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
+        </Style>
+
+    </Window.Resources>
+    <Controls:MetroWindow.Effect>
+        <DropShadowEffect Color="White" />
+    </Controls:MetroWindow.Effect>
+
+    <Grid>
+
+        <ScrollViewer x:Name="ScrollViewer" Style="{StaticResource ScrollViewerStyle}" Margin="0,70,0,0">
+            <ItemsControl x:Name="itemsControl" VerticalAlignment="Center" Width="404" >
+                
+                <TextBlock Name="space" HorizontalAlignment="Left" Margin="0,500,0,0"/>
+                <Image Source="Resources\icon.png" Height="250" Width="250"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Description :" VerticalAlignment="Top" Height="30" Width="400" TextAlignment="Center" FontFamily="Roboto" FontSize="20"/>
+                <TextBlock Visibility="Hidden" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="Wave Lab" VerticalAlignment="Top" Height="50" Width="400" TextAlignment="Center" FontFamily="Roboto" FontSize="36"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Wave Lab et un outil de Compression d'images Médicales Volumétriques par la méthode d'Ondelette, il propose aussi un editeur d'image exceptionnel." VerticalAlignment="Top" Height="120" Width="394" TextAlignment="Center" FontFamily="roboto" FontSize="20"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20"><Run Text="Outils Utilisés"/><Run Text=" :"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20" Text="Pour la compression et la decompression des images, Wave Lab utilise Matlab Compiler Runtime"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="120" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20"><Run Text="Pour l'interface Graphique, Wave Lab a été conçu"/><Run Text=" avec les outils de Microsoft"/><Run Text=" "/><LineBreak/><Run Text="Windows Presentation Foundation (XAML) pour les fenètres,"/><LineBreak/><Run Text="C# pour le noyau"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20" Text="A propos de nous :"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="200" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20"><Run Text="L'équipe réalisatrice du projet:"/><LineBreak/><Run Text="Nous somme une équipe de 6 personnes de l'Ecole nationale supérieure d'informatique (ESI)"/><Run Text=" dans le cadre d'un projet pluridisciplinaire"/><Run Text=":"/></TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,00,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="200" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20"><LineBreak/><Run Text="- Fekih Mohamed Anis (CE)"/><LineBreak/><Run Text="- Handaoui Mohamed"/><LineBreak/><Run Text="-"/><Run Text=" Aissaoui Ahlem"/><LineBreak/><Run Text="- Bouchaour Houda"/><LineBreak/><Run Text="- Heriche Walid"/><LineBreak/><Run Text="- "/><Run Text="Laribi Hassina"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20" Text="Remerciment"/>
+                <TextBlock HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="99" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20"><Run Text="Un grand merci pour nos Encadreurs:"/><LineBreak/><Run Text="- Kacet Sabrina"/><LineBreak/><Run Text="- Ayad Khadidja"/><Run Text="Khadidja"/></TextBlock>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="400" Width="400" TextAlignment="Center" FontFamily="roboto" FontSize="20"><Run Text="Et un grand merci pour les personnes qui nous ont aidé:"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="- Amine Birouk"/><LineBreak/><Run Text="- Yassine Hani "/><LineBreak/><LineBreak/><Run Text="- Othmane Delassi "/><LineBreak/><Run Text="- Chakib Belgaid "/><LineBreak/><Run Text=""/><LineBreak/><LineBreak/><Run Text="Et merci pour tous ce qui ont contribué à ce projet"/></TextBlock>
+
+                <Image Source="Resources\esi.png" Height="300" Width="300"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0"/>
+
+            </ItemsControl>
+        </ScrollViewer>
+
+
+        <StatusBar Height="70" VerticalAlignment="Top"/>
+
+        
+        <Controls:WindowCommands Height="55" VerticalAlignment="Top" Margin="57,0,82,0" Visibility="Visible">
+
+            <Button >
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle x:Name="imgHelp" Width="50" Height="50"
+            			Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+            					Visual="{StaticResource appbar_information_circle}" />
+                        </Rectangle.OpacityMask>
+
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="    WAVE LAB" FontSize="36"  />
+                </StackPanel>
+            </Button>
+            
+
+        </Controls:WindowCommands>
+
+
+
+    </Grid>
+</Controls:MetroWindow>

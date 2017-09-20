@@ -1,0 +1,67 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PRJ7_ EQ8_Kacet_Ayad _ noticeUtilisation - Search</title>
+<meta name="GENERATOR" content="" />
+<link rel="stylesheet" type="text/css" href="css/jquery.ui.css"/>
+<link rel="stylesheet" type="text/css" href="css/mo-tree.css"/>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<link rel="stylesheet" type="text/css" href="css/custom.css"/>
+<script type="text/javascript" src="js/moCommonData.js"></script>
+<script type="text/javascript" src="js/moCommon.js"></script>
+<script type="text/javascript" src="js/moSearchData.js"></script>
+<script type="text/javascript" src="js/moSearch.js"></script>
+<script type="text/javascript" src="js/moHelpApi.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/moTree.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript">
+
+  $( function() {
+  
+      data.showResult = function( result, idx ) {
+          if (!result){
+              return;
+          }
+          result = result.toArray();
+          var sData = {ns:[], ps:[], ts:[], tl:[]};
+          for( var i=0; i<result.length; i++ ) {
+              var r = result[i];
+              if (data.ns.length > 0) {
+                sData.ns[i] = data.ns[r];
+              }
+              sData.ps[i] = data.ps[r] + "#!hl=" + re_hl;
+              sData.ts[i] = data.ts[r];
+              sData.tl[i] = 1;
+          }
+          if( result.length > 0 ) {
+              var $search = $( ".mo-tree" )
+              .moTree( sData, {
+                  hoverClass: "ui-state-hover",
+                  selectedClass: "ui-state-highlight",
+                  target: "body-frame"
+              });
+              if( idx >= 0 ) {
+                  $search.selectNodeByIdx( idx );
+                  parent.location.href = "index.html#!{0}#!hl={1}".format( data.ps[ idx ], re_hl );
+              }
+          } else {
+              $( ".mo-tree" ).html( "No topic found." );
+          }
+      }
+      
+      onLive( Go );
+
+  });
+
+</script>
+
+</head>
+<body>
+
+<div class="fill mo-tree search-toc-body"></div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.FenetreFiltre"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      EnableDWMDropShadow="True"
+                      Title="Filtres" 
+                      Height="218.88" 
+                      Width="556.015" 
+                      WindowStartupLocation="CenterScreen" 
+                      ResizeMode="NoResize">
+    <Grid>
+        <StatusBar HorizontalAlignment="Left" Height="388" Margin="-4,0,-42,-20" VerticalAlignment="Top" Width="596">
+        </StatusBar>
+
+        <Image Source="Resources\5.png" Stretch="Fill" Opacity="0.5" Margin="0,-58,0,0" MouseLeftButtonDown="moveWindow"/>
+
+
+        <TextBox Name="src1" HorizontalAlignment="Left" Margin="10,0,0,110" TextWrapping="Wrap" Text="" Width="472" Height="32" VerticalAlignment="Bottom">
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Name="src2" HorizontalAlignment="Left" Margin="10,0,0,47" TextWrapping="Wrap" Text="" Width="472" Height="32" VerticalAlignment="Bottom">
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+
+        <Label Content="Choisissez le chemin de la sauvegarde" HorizontalAlignment="Left" Margin="10,0,0,79" Height="26" VerticalAlignment="Bottom"/>
+        <Label Content="Choisissez une images" HorizontalAlignment="Left" Margin="10,0,0,147" Height="26" VerticalAlignment="Bottom"/>
+        <Button  HorizontalAlignment="Left" Margin="487,0,0,103" Width="46" Style="{DynamicResource MetroCircleButtonStyle}" Click="image1_Click" Height="47" VerticalAlignment="Bottom">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Rectangle  Name="imgImage" Width="25" Height="25"
+                   Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" MouseEnter="openEnter" MouseLeave="openLeave">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_image}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+
+            </StackPanel>
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button  HorizontalAlignment="Left" Margin="487,0,0,41" Width="46" Style="{DynamicResource MetroCircleButtonStyle}" Click="image2_Click" Height="47" VerticalAlignment="Bottom">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <StackPanel Orientation="Horizontal">
+                <Rectangle Name="imgSave" Width="25" Height="25"
+                   Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" MouseEnter="saveEnter" MouseLeave="saveLeave">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_save}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+
+            </StackPanel>
+        </Button>
+
+        <Image Name="img1" HorizontalAlignment="Left" Height="171" Margin="10,10,0,0" VerticalAlignment="Top" Width="194"/>
+        <Image Name="img2" HorizontalAlignment="Left" Height="171" Margin="319,10,0,0" VerticalAlignment="Top" Width="194"/>
+        <Button Content="Appliquer" HorizontalAlignment="Left" Margin="99,0,0,10" Width="75" Click="Button_Click" Height="25" VerticalAlignment="Bottom">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button Content="Annulet" HorizontalAlignment="Left" Margin="365,0,0,10" Width="75" Click="Button_Click_1" Height="25" VerticalAlignment="Bottom">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>
+

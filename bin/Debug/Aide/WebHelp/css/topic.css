@@ -1,0 +1,163 @@
+﻿body {
+  padding: 0;
+  margin: 2px;
+}
+.fill {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+
+
+html, body {
+  overflow: hidden;
+}
+#crumbs {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  height: 26px;
+  overflow: hidden;
+}
+#topic {
+  position: absolute;
+  top: 32px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  padding: 8px 12px 12px 12px;
+}
+
+#crumbs .fill {
+  overflow: hidden;  
+  padding: 5px 10px;
+  right: 207px;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+#crumbs .fill, #crumbs .text, .body-tool .button, #footer {
+  font-family: verdana;
+  font-size: 8pt;
+}
+
+#icons-right {
+  position: absolute;
+  right: 5px;
+  width: 207px;
+  bottom: 0px;
+  height: 24px;
+  overflow: hidden;
+}
+a.text:link, a.text:visited, span.text {
+  position: relative;
+  display: inline-block;
+  padding: 1px 3px;
+  color: #eaf5f7;
+  text-decoration: none;
+}
+a.text:link span.hover, a.text:visited span.hover {
+  position: absolute;
+  display: none;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  padding: 0px 2px;
+}
+a.text:hover span.hover {
+  position: absolute;
+  display: block;
+}
+#icons-right .icon, #icons-right .icon-space {
+  display: inline-block;
+}
+.icon-space {
+  width: 5px;
+  height: 20px;
+}
+a.icon, div.icon, span.icon {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+}
+.icon div.icon1,
+.icon div.icon2 {
+  position: absolute;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  margin: 0;
+}
+.icon .ui-icon {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  padding: 0;
+  margin: 0;
+}
+.icon div.icon2 {
+  display: none;
+}
+a.icon:hover div.icon2 {
+  display: inline-block;
+}
+
+.related-topics-title {
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+.related-topics {
+  line-height: 150%;
+  padding-left: 24px;
+}
+.related-topics a:link,.related-topics a:visited {
+  text-decoration: none;
+  color: #0060B5;
+}
+.related-topics a:hover { 
+  text-decoration: underline;
+}
+.sub-title-inner, .body-tool .button {
+  padding: 3px;
+}
+.sub-body .inner {
+  padding-top: 4px;
+}
+.body-tool {
+  padding: 1px 1px 4px 1px;
+}
+.body-tool-2 {
+  text-align: right;
+}
+#topic {
+  border: 0;
+}
+
+@media print { 
+  #header, #footer, #crumbs, .body-tool {
+    display: none;
+  }
+  .sub-body .inner {
+    display: block;
+  }
+  #topic {
+    position: relative;
+    overflow: display;
+    top: 0;
+  }
+}
+
+.unactivated-info {
+  border:1px solid #fcd113;background:#f8da4e url(images/ui-bg_glass_55_f8da4e_1x400.png) 50% 50% repeat-x;color:#915608;
+  font-family: verdana;
+  font-size: 9pt;
+  padding: 10px;
+  margin: 10px;
+}

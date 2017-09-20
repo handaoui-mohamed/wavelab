@@ -1,0 +1,94 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.Help_and_Tips"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      EnableDWMDropShadow="True"
+                      ShowTitleBar="False"
+                      WindowStartupLocation="CenterScreen" 
+                      BorderThickness="0" 
+                      ResizeMode="CanMinimize" 
+                      Title="Aide et Conseils"
+                      Height="340"
+                      Width="492">
+
+    <Grid Margin="0,0,-6,-29">
+
+        <Controls:FlipView 
+                   IsBannerEnabled="False" MouseOverGlowEnabled="False" 
+                   
+                   Margin="-6,-6,0,25"
+             >
+            <Controls:FlipView.Items>
+                
+                <Grid Background="#BF1E4B">
+                    <Rectangle Margin="216,10,222,253" Width="50" Height="50">
+                        <Rectangle.Effect>
+                            <DropShadowEffect Opacity="0.5"/>
+                        </Rectangle.Effect>
+                        <Rectangle.Fill>
+                            <VisualBrush Visual="{StaticResource appbar_globe}" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                   <TextBlock Text="Le Saviez Vous!" Foreground="White" Margin="37,80,63,30" TextAlignment="Center" FontStyle="Italic" FontSize="18" TextDecorations="{x:Null}" >
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="37,123,0,0" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="400" TextAlignment="Center" FontStyle="Italic" FontSize="18"><Run Text="                                                                                                                                                                                                                   Pour changer le theme ou la couleur de WaveLab                                                                                                                                                                                                                     Allez vers Affichage-&gt;Personnaliser-&gt;Themes "/></TextBlock>
+                </Grid>
+                <Grid Background="#2E8DEF">
+                    <Rectangle Margin="216,10,222,253" Width="50" Height="50">
+                        <Rectangle.Effect>
+                            <DropShadowEffect Opacity="0.5"/>
+                        </Rectangle.Effect>
+                        <Rectangle.Fill>
+                            <VisualBrush Visual="{StaticResource appbar_globe}" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="Le Saviez Vous!" Foreground="White" Margin="50,80,50,30" TextAlignment="Center" FontStyle="Italic" FontSize="18" TextDecorations="{x:Null}" >
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="37,140,0,0" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="400" TextAlignment="Center" FontStyle="Italic" FontSize="18"><Run Text="Vous pouvez inserer des images, des formes ou bien du texte sur une image juste en allant dans le menu Image->Inserer ou bien à partir des racourcis dans la barre d'outils   "/></TextBlock>
+                </Grid>
+                <Grid Background="#00A600">
+                    <Rectangle Margin="216,10,222,253" Width="50" Height="50">
+                        <Rectangle.Effect>
+                            <DropShadowEffect Opacity="0.5"/>
+                        </Rectangle.Effect>
+                        <Rectangle.Fill>
+                            <VisualBrush Visual="{StaticResource appbar_globe}" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="Le Saviez Vous!" Foreground="White" Margin="50,80,50,30" TextAlignment="Center" FontStyle="Italic" FontSize="18" TextDecorations="{x:Null}" >
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="37,140,0,0" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="400" TextAlignment="Center" FontStyle="Italic" FontSize="18"><Run Text="Vous pouvez basculer vers la vue plein écran en cliquant sur Image plein écran dans le menu Affichage"/></TextBlock>
+                </Grid>
+                <Grid Background="Sienna">
+                    <Rectangle Margin="216,10,222,253" Width="50" Height="50">
+                        <Rectangle.Effect>
+                            <DropShadowEffect Opacity="0.5"/>
+                        </Rectangle.Effect>
+                        <Rectangle.Fill>
+                            <VisualBrush Visual="{StaticResource appbar_globe}" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="Le Saviez Vous!" Foreground="White" Margin="50,80,50,30" TextAlignment="Center" FontStyle="Italic" FontSize="18" TextDecorations="{x:Null}" >
+                        <TextBlock.Effect>
+                            <DropShadowEffect/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Left" Margin="37,140,0,0" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" Height="114" Width="400" TextAlignment="Center" FontStyle="Italic" FontSize="18" Text="Si vous étes bloqué appuyez sur F1 pour afficher l'aide"/>
+                </Grid>
+            </Controls:FlipView.Items>
+        </Controls:FlipView>
+
+    </Grid>
+
+</Controls:MetroWindow>
+

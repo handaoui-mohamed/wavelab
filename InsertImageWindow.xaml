@@ -1,0 +1,81 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.InsertImageWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      EnableDWMDropShadow="True"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="Inserer une Image" 
+                      Height="313"
+                      Width="338" 
+                      ResizeMode="NoResize"
+                      WindowStartupLocation="CenterScreen" 
+                      Topmost="True"
+                      ShowActivated="True" 
+                      ShowInTaskbar="False"
+                      WindowStyle="ToolWindow">
+    
+    <Grid Margin="0,0,0,0" >
+        <StatusBar HorizontalAlignment="Left" Height="297" Margin="-4,0,-15,-12" VerticalAlignment="Top" Width="351">
+        </StatusBar>
+
+        <Image Source="Resources\5.png" Stretch="Fill" Opacity="0.5" Margin="0,-58,0,0" MouseLeftButtonDown="moveWindow"/>
+
+        <Label Foreground="White" Content="Image:" HorizontalAlignment="Left" Margin="16,12,0,0" Name="lbl1" VerticalAlignment="Top" />
+        <Label Foreground="White" Content="X:" HorizontalAlignment="Left" Margin="16,42,0,0" Name="lbl2" VerticalAlignment="Top" />
+        <Label Foreground="White" Content="Y:" HorizontalAlignment="Left" Margin="16,72,0,0" Name="lbl3" VerticalAlignment="Top" />
+        <Label Foreground="White" Content="Largeur:" HorizontalAlignment="Left" Margin="16,102,0,0" Name="lbl4" VerticalAlignment="Top" />
+        <Label Foreground="White" Content="Hauteur:" HorizontalAlignment="Left" Margin="16,132,0,0" Name="lbl5" VerticalAlignment="Top" />
+        <Label Foreground="White" Content="Angle:" HorizontalAlignment="Left" Margin="16,162,0,0" Name="lbl6" VerticalAlignment="Top" />
+        <Label Foreground="White" Content="Opacity:" HorizontalAlignment="Left" Margin="16,192,0,0" Name="lbl7" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,15,0,0" IsReadOnly="True" Name="txtImage" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,45,0,0" Name="txtX" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,75,0,0" Name="txtY" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,105,0,0" Name="txtWidth" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,135,0,0" Name="txtHeight" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,165,0,0" Name="txtAngle" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="78,195,0,0" Name="txtOpacity" VerticalAlignment="Top" Width="200" >
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <Button Content="..." Height="23" HorizontalAlignment="Left" IsDefault="True" Name="btnOpen" VerticalAlignment="Top" Width="23" Margin="287,15,0,0" Click="btnOpen_Click" >
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button Content="appliquer" Height="23" HorizontalAlignment="Left" IsDefault="True" Name="btnOK" VerticalAlignment="Bottom" Width="75" Margin="87,0,0,13" Click="btnOK_Click" >
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button Content="Annuler" Height="23" IsCancel="True" HorizontalAlignment="Left" Name="btnCancel" VerticalAlignment="Bottom" Width="75" Margin="173,0,0,13" Click="btnCancel_Click" >
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+    </Grid>
+</Controls:MetroWindow>

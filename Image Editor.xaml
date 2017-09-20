@@ -1,0 +1,649 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.Image_Editor"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:local="clr-namespace:Wave_Lab"
+                      Title="Wave Lab Image Editor"
+                      
+                      Height="670"
+                      Width="1153.75"
+
+                      MinHeight="614"
+                      MinWidth="1127"
+                      
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      EnableDWMDropShadow="True"
+                      ResizeMode="CanResizeWithGrip"
+                      WindowTransitionsEnabled="True"
+                      WindowStartupLocation="CenterScreen"                    
+                      RenderOptions.ClearTypeHint="Enabled"
+                      TextOptions.TextFormattingMode="Display" 
+                      ShowTitleBar="False" 
+                      WindowStyle="None"
+                      WindowState="Maximized" KeyDown="helpF1"       
+                      >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatSlider.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+
+            <Button  ToolTip="Aide e" Click="MenuItem_Click_2" MouseEnter="helpEnter" MouseLeave="helpLeave">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Name="imgHelp" Width="20" Height="26"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_book_perspective_help}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Aide" />
+                </StackPanel>
+            </Button>
+            <Button Name="about" ToolTip="à propos de nous" Click="about_Click" MouseEnter="aboutEnter">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Name="imgAbout" Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_user}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="à propos de nous" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid Margin="0,0,2,1" MouseDown="moveWindow">
+
+
+
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="33*"/>
+
+            <RowDefinition Height="63*"/>
+
+            <RowDefinition Height="565*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="128*"/>
+            <ColumnDefinition Width="274*"/>
+            <ColumnDefinition Width="246"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StatusBar Margin="0,0,-3,0" Grid.ColumnSpan="4" Grid.RowSpan="2"/>
+
+        <Image Name="blanc" Source="Resources/white.png" Grid.ColumnSpan="4" Margin="0,52,-18,19" Stretch="Fill" Grid.Row="2" Visibility="Hidden" Grid.RowSpan="2"/>
+
+        <Image Source="Resources/iron_texture2388.jpg" Margin="0,55,0,19" Grid.Column="1" Opacity="0.02" Stretch="UniformToFill" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+        <GroupBox Header="Outils" Margin="0,25,0,19" Grid.Row="2" Grid.RowSpan="2">
+            <StackPanel Margin="10,28,16,27">
+
+                <Button Name="cropButton" ToolTip="Rogner l'image" Click="crop_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_crop}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="resizeButton" ToolTip="Changer La résolution de l'image" Click="resize_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_arrow_collapsed}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="inserImageButton" ToolTip="Inserer une image" Click="ImageInsertMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_image_export}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="inserTextButton" ToolTip="Inserer un Text" Click="TextInsertMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_text_sans}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="inserShapeButton" ToolTip="Inserer une Forme" Click="ShapeInsertMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_3d_obj}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="contrastButton" ToolTip="Changer la Contrast" Click="ConstrastMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_contrast}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="lumButton" ToolTip="Changer la luminosité" Click="BrightnessMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_laser}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button  Name="inverseButton" ToolTip="Effet Négatif" Click="inverse_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_math_plus_minus}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="sepiaButton" ToolTip="Effet Sepia" Click="SepiaToneMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_thermometer_signs}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="grayButton" ToolTip="Effet Noir/Blanc" Click="image_grayScal_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_moon}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="redButton" ToolTip="Filtre rouge" Click="filtreRouge_Click" Background="#FFC11010" BorderBrush="{x:Null}" Height="10" MinHeight="25" MinWidth="25" MaxHeight="25" MaxWidth="25" Margin="4,0"/>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="greenButton" ToolTip="Filtre vert" Click="filtreVert_Click" Background="#FF15D81E" BorderBrush="{x:Null}" Height="10" MinHeight="25" MinWidth="25" MaxHeight="25" MaxWidth="25" Margin="4,0"/>
+
+                <TextBlock FontSize="2"/>
+
+                <Button Name="blueButton" ToolTip="Filtre Bleu" Click="filtreBleu_Click" Background="#FF043BB0" BorderBrush="{x:Null}" Height="10" MinHeight="25" MinWidth="25" MaxHeight="25" MaxWidth="25" Margin="4,0"/>
+
+            </StackPanel>
+        </GroupBox>
+
+        <StatusBar Grid.ColumnSpan="4" Margin="0,0,-18,-2" Height="21" Grid.Row="3" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" Text="Prêt"/>
+        </StatusBar>
+
+
+        <!-- the image view (zoom and move)-->
+        <Slider Orientation="Vertical" Grid.Column="1" Margin="0,53,237,19" Width="Auto"  Grid.Row="2" Height="Auto" x:Name="slider" Minimum="1" Maximum="5" Style="{DynamicResource FlatSlider}" Grid.RowSpan="2">
+            <Slider.Background>
+                <ImageBrush/>
+            </Slider.Background>
+        </Slider>
+        <ScrollViewer Name="scrollViewer" Grid.Column="1" Margin="19,53,0,19" Grid.Row="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Grid Name="grid" Width="600" Height="430" RenderTransformOrigin="0.5,0.5">
+                <Grid.LayoutTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="scaleTransform"/>
+                    </TransformGroup>
+                </Grid.LayoutTransform>
+                <Viewbox Grid.Column="0" Grid.Row="0" Margin="0,0,-18,-18">
+                    <Image Name="image">
+                        <Image.Effect>
+                            <DropShadowEffect RenderingBias="Quality" ShadowDepth="30" BlurRadius="40"/>
+                        </Image.Effect>
+                    </Image>
+                </Viewbox>
+            </Grid>
+
+
+        </ScrollViewer>
+
+        <StatusBar Grid.Row="3" Height="1" VerticalAlignment="Bottom" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Margin="0,0,0,19" Grid.Column="1">
+            <StatusBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StatusBar.RenderTransform>
+        </StatusBar>
+
+        <GroupBox Grid.Column="3" Header="Informations" Margin="0,25,-2,19" Grid.Row="2" Grid.RowSpan="2">
+            <StackPanel Margin="0,0,-12,-6">
+                <TextBlock Name="information"  TextWrapping="Wrap" Text="" Foreground="White" Height="526" Margin="0,0,10,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <StatusBar Grid.ColumnSpan="4" Margin="0,0,-3,0" Height="25" VerticalAlignment="Top" Grid.Row="2"/>
+
+        <Image Name="filter1" Source="Resources\5.png" Stretch="Fill" Opacity="0.5"  Margin="-22,0,-8,0" Grid.ColumnSpan="4" Height="88" VerticalAlignment="Top" Grid.RowSpan="3"/>
+
+        <Menu Margin="0,0,-3,0" Grid.ColumnSpan="4" RenderTransformOrigin="0.5,0.704" Height="32" VerticalAlignment="Bottom" Grid.RowSpan="2">
+            <Menu.Background>
+                <ImageBrush/>
+            </Menu.Background>
+            <Menu.Effect>
+                <DropShadowEffect ShadowDepth="2" Opacity="0.7"/>
+            </Menu.Effect>
+            <MenuItem Header="Fichier">
+                <MenuItem.Background>
+                    <ImageBrush/>
+                </MenuItem.Background>
+
+                <MenuItem Name="fichier_ouvrir" Header="Ouvrir" Click="fichier_ouvrir_Click" />
+                <Separator />
+                <MenuItem Header="Fermer" Click="MenuItem_Click"/>
+                <MenuItem Name="fichier_Enregistrer_sous" Header="Enregistrer sous" Click="fichier_Enregistrer_sous_Click"/>
+                <Separator />
+                <MenuItem Name="info" Header="Information" Click="info_Click"/>
+                <Separator />
+                <MenuItem Name="print" Header="Imprimer" Click="print_Click"/>
+                <Separator />
+                <MenuItem Name="quit" Header="Quitter" Click="quit_Click"/>
+            </MenuItem>
+            <!-- the seconde option -->
+            <MenuItem Header="Edition">
+                <MenuItem.Background>
+                    <ImageBrush/>
+                </MenuItem.Background>
+                <MenuItem Name="edition_undo" Header="Annuler" Click="edition_undo_Click"/>
+                <MenuItem Name="edition_redo" Header="Rétablir" Click="edition_redo_Click"/>
+                
+            </MenuItem>
+
+            <!--the 3th -->
+            <MenuItem Header="Image">
+                <MenuItem.Background>
+                    <ImageBrush/>
+                </MenuItem.Background>
+                <MenuItem Name="crop" Header="Rogner" Click="crop_Click"/>
+                <MenuItem Name="resize" Header="Ajuster la taille" Click="resize_Click" />
+                <Separator/>
+                <MenuItem Header="Rotation de l'image" >
+                    <MenuItem Name="image_180" Header="180°" Click="image_180_Click"/>
+                    <MenuItem Name="image_90h" Header="90° horaire" Click="image_90h_Click"/>
+                    <MenuItem Name="image_90a" Header="90° antihoraire" Click="image_90a_Click"/>
+                    <Separator/>
+                    <MenuItem Name="image_hori" Header="Symétrie horizontale" Click="image_hori_Click"/>
+                    <MenuItem Name="image_vert" Header="Symétrie verticale" Click="image_vert_Click"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Inserer">
+                    <MenuItem Header="Image" Click="ImageInsertMenu_Click"/>
+                    <MenuItem Header="Forme" Click="ShapeInsertMenu_Click"/>
+                    <MenuItem Header="Texte" Click="TextInsertMenu_Click"/>
+                </MenuItem>
+            </MenuItem>
+
+            <!-- the 4 th-->
+            <MenuItem Header="Filtre">
+                <MenuItem.Background>
+                    <ImageBrush/>
+                </MenuItem.Background>
+
+                <MenuItem Header="Filtre de Couleur">
+                    <MenuItem Name="filtreRouge" Header="Rouge" Click="filtreRouge_Click"/>
+                    <MenuItem Name="filtreBleu" Header="Bleu" Click="filtreBleu_Click"/>
+                    <MenuItem Name="filtreVert" Header="Vert" Click="filtreVert_Click"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="image_grayScal" Header="Niveaux de gris" Click="image_grayScal_Click" />
+                <MenuItem Name="inverse" Header="Négative" Click="inverse_Click"/>
+                <MenuItem Name="SepiaToneMenu" Header="Sepia" Click="SepiaToneMenu_Click"/>
+                <MenuItem Name="contrast" Header="Contrast" Click="ConstrastMenu_Click"/>
+                <MenuItem Name="brightness" Header="Luminosité" Click="BrightnessMenu_Click"/>
+                <!--<Separator/>
+                <MenuItem Name="laplacien" Header="Laplacien" Click="laplacien_Click"/>
+                <MenuItem Name="rehausseur" Header="Rehausseur" Click="rehausseur_Click"/>
+                <MenuItem Name="robert" Header="Robert" Click="robert_Click"/>
+                <MenuItem Name="sobel" Header="Sobel" Click="sobel_Click"/>-->
+                
+            </MenuItem>
+            <!-- the 5th -->
+            <MenuItem Header="Traitement" Background="{x:Null}">
+                <MenuItem.BorderBrush>
+                    <ImageBrush/>
+                </MenuItem.BorderBrush>
+                <MenuItem Header="Compression" Click="fichier_Compresser_Click">
+                </MenuItem>
+                <MenuItem Header="Décompression" Click="fichier_Decompression_Click"/>
+
+                <MenuItem Header="Comparaison" Click="compare_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Affichage">
+                <MenuItem.Background>
+                    <ImageBrush/>
+                </MenuItem.Background>
+                <MenuItem Name="zoom_av" Header="Zoom avant" Click="zoom_av_Click"/>
+                <MenuItem Name="zoom_ar" Header="Zoom arrière" Click="zoom_ar_Click"/>
+                <MenuItem Name="BitmapViewMenu" Header="Image plein écran" Click="BitmapViewMenu_Click"/>
+                <Separator/>
+                <MenuItem Header="Personaliser">
+                    <MenuItem Header="Couleur">
+                        <MenuItem Name="rouge" Header="Rouge" Click="rouge_Click"/>
+                        <MenuItem Name="vert" Header="Vert" Click="vert_Click"/>
+                        <MenuItem Name="bleu" Header="Bleu" Click="bleu_Click"/>
+                        <MenuItem Name="pourpre" Header="Pourpre" Click="pourpre_Click"/>
+                        <MenuItem Name="orange" Header="Orange" Click="orange_Click"/>
+                        <MenuItem Name="citron_vert" Header="citron vert" Click="citron_vert_Click"/>
+                        <MenuItem Name="emeraude" Header="Emeraude" Click="emeraude_Click"/>
+                        <MenuItem Name="sarcellle" Header="Sarcelle" Click="sarcellle_Click"/>
+                        <MenuItem Name="cyan" Header="Cyan" Click="cyan_Click"/>
+                        <MenuItem Name="cobalt" Header="Cobalt" Click="cobalt_Click"/>
+                        <MenuItem Name="indigo" Header="Indigo" Click="indigo_Click"/>
+                        <MenuItem Name="violet" Header="Violet" Click="violet_Click"/>
+                        <MenuItem Name="rose" Header="Rose" Click="rose_Click"/>
+                        <MenuItem Name="magenta" Header="Magenta" Click="magenta_Click"/>
+                        <MenuItem Name="cramoisi" Header="Cramoisi" Click="cramoisi_Click"/>
+                        <MenuItem Name="ambre" Header="Ambre" Click="ambre_Click"/>
+                        <MenuItem Name="jaune" Header="Jaune" Click="jaune_Click"/>
+                        <MenuItem Name="brun" Header="Brun" Click="brun_Click"/>
+                        <MenuItem Name="olive" Header="Olive" Click="olive_Click"/>
+                        <MenuItem Name="acier" Header="Acier" Click="acier_Click"/>
+                        <MenuItem Name="mauve" Header="Mauve" Click="mauve_Click"/>
+                        <MenuItem Name="taupe" Header="Taupe" Click="taupe_Click"/>
+                        <MenuItem Name="sienna" Header="Sienna" Click="sienna_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="Themes">
+                        <MenuItem Name="dark" Header="Sombre" Click="dark_Click"/>
+                        <MenuItem Name="light" Header="Claire" Click="light_Click"/>
+
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+            
+            <MenuItem Header="Aide">
+                <MenuItem.Background>
+                    <ImageBrush/>
+                </MenuItem.Background>
+                <MenuItem Header="Contenu de l'aide" Click="MenuItem_Click_1"/>
+                <MenuItem Name="tips" Header="Astuces" Click="tips_Click" />
+                <Separator/>
+                <MenuItem  Header="Site web de Wave Lab" Click="MenuItem_Click_2"/>
+                <MenuItem Name="contact" Header="Nous contacter" Click="contact_Click"/>
+                <Separator/>
+                <MenuItem Header="A propos de Nous" Click="about_Click"/>
+                <MenuItem Name="waveLab_about" Header="A propos de Wave Lab"  Click="waveLab_about_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar Grid.ColumnSpan="4" Margin="0,0,-3,0" Height="25" VerticalAlignment="Top" Grid.Row="2">
+            <StatusBar.Background>
+                <ImageBrush/>
+            </StatusBar.Background>
+
+            <Controls:WindowCommands>
+                <Button ToolTip="Ouvrir une nouvelle image" Click="fichier_ouvrir_Click" MouseEnter="openEnter" MouseLeave="openLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgOpen" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_image}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Imprimer" Click="print_Click" MouseEnter="printEnter" MouseLeave="printLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgPrint" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" >
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_printer}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Enregister l'image" Click="fichier_Enregistrer_sous_Click"  MouseEnter="saveEnter" MouseLeave="saveLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgSave" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_save}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Annuler" Click="edition_undo_Click" MouseEnter="annulerEnter" MouseLeave="annulerLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgAnnuler" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_undo}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Rétablir" Click="edition_redo_Click" MouseEnter="redoEnter" MouseLeave="redoLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgRedo" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_redo}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+
+                <Button ToolTip="Rotation 90° Horaire" Click="image_90h_Click" MouseLeave="r90hLeave" MouseEnter="r90hEnter">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="text90h" Text="90° " FontSize="13" Width="22"/>
+
+                        <Rectangle Name="img90h" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_redo_curve}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Rotation 90° Antihoraire"  Click="image_90a_Click"  MouseEnter="r90aEnter"  MouseLeave="r90aLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="img90a" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_undo_curve}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                        <TextBlock Name="text90a" Text=" 90°" FontSize="13" Width="22"/>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Miroir Horizontal" Click="image_hori_Click" MouseEnter="mhEnter" MouseLeave="mhLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgMh" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_arrow_left_right}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Miroir Vertical" Click="image_vert_Click" MouseEnter="mvEnter" MouseLeave="mvLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgMv" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_arrow_up_down}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+
+                <Button ToolTip="Zoom Avant" Click="zoom_av_Click" MouseEnter="zoomavEnter" MouseLeave="zoomavLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgZoomav" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_magnify_add}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                <Button ToolTip="Zoom Arrière" Click="zoom_ar_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgZoomar" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" MouseEnter="zoomarEnter" MouseLeave="zoomarLeave">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_magnify_minus}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+
+                <Button ToolTip="Image Plein Ecran" Click="BitmapViewMenu_Click" MouseEnter="fullEnter" MouseLeave="fullLeave">
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Name="imgFull" Width="15" Height="15"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_arrow_expand}" />
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                    </StackPanel>
+                </Button>
+
+                
+
+            </Controls:WindowCommands>
+        </StatusBar>
+
+        <Image Name="filter2" Source="Resources\5.png" Stretch="Fill" Opacity="0.5"  Margin="-22,0,-18,-13" Grid.ColumnSpan="4" Grid.Row="3" Height="32" VerticalAlignment="Bottom"/>
+
+
+        <Image Name="blanc2"  Source="Resources/white.png" Opacity="1" Grid.ColumnSpan="2" Margin="0,25,0,0" Stretch="Fill" Grid.Row="2" Grid.Column="1" Visibility="Hidden" Height="35" VerticalAlignment="Top"/>
+        <TabControl  Name="tabDynamic" Grid.Column="1" Margin="0,26,0,0" Grid.Row="2" SelectionChanged="tabDynamic_SelectionChanged" Grid.ColumnSpan="2" Height="27" VerticalAlignment="Top"/>
+
+    </Grid>
+
+
+
+</Controls:MetroWindow>

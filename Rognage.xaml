@@ -1,0 +1,107 @@
+﻿<Controls:MetroWindow x:Class="Wave_Lab.Rognage"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:local="clr-namespace:Wave_Lab;assembly="
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      EnableDWMDropShadow="True"
+                      Title="Rognage" 
+                      Height="350.14" 
+                      Width="557.957" 
+                      ResizeMode="NoResize" 
+                      Topmost="True" 
+                      WindowStartupLocation="CenterScreen" 
+                      ShowActivated="True" 
+                      ShowInTaskbar="False" 
+                      WindowStyle="ToolWindow" 
+                      Loaded="Window_Loaded">
+
+
+    <Grid Margin="0,0,0,0" >
+
+        <StatusBar HorizontalAlignment="Left" Height="638" Margin="-29,0,-14,-260" VerticalAlignment="Top" Width="743">
+            
+        </StatusBar>
+
+        <Image Source="Resources\5.png" Stretch="Fill" Opacity="0.5" Margin="0,-58,0,0" MouseLeftButtonDown="moveWindow"/>
+        <Button Content="Appliquer" IsDefault="True" Name="btnOK" Margin="81,280,398,10" Click="btnOK_Click">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+        <Button Content="Annuler" IsCancel="True" Name="btnCancel" Margin="383,280,96,10" >
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
+
+        <Image  x:Name="img" Margin="10,10,225,57" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect Opacity="0.4"/>
+            </Image.Effect>
+        </Image>
+
+        <Image x:Name="imgCrop" Margin="355,61,5,80">
+            <Image.Effect>
+                <DropShadowEffect Opacity="0.3"/>
+            </Image.Effect>
+        </Image>
+        <DockPanel LastChildFill="True" Margin="5,5,5,5" Visibility="Hidden" x:Name="dckControls">
+            <StackPanel VerticalAlignment="Stretch" Width="Auto" Orientation="Horizontal" DockPanel.Dock="Top">
+                <StackPanel.Resources>
+                    <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="5,5,5,5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF8099BE" Offset="0"/>
+                        <GradientStop Color="#FFFFF4A0" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Button Content="Button"/>
+                <Button Content="Button"/>
+                <Button Content="Button"/>
+                <Button Content="Button"/>
+            </StackPanel>
+            <StackPanel Margin="-1,0,0,0" Width="100">
+                <StackPanel.Resources>
+                    <Style x:Key="{x:Type CheckBox}" TargetType="{x:Type CheckBox}">
+                        <Setter Property="Margin" Value="5,5,5,5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF8AA7CC" Offset="0"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+                <CheckBox Content="CheckBox"/>
+            </StackPanel>
+            <ListBox IsSynchronizedWithCurrentItem="True" FontSize="16" SelectedIndex="-1">
+                <ListBox.Background>
+                    <LinearGradientBrush EndPoint="0.473,0.795" StartPoint="0.471,0.62" SpreadMethod="Reflect">
+                        <GradientStop Color="#FFAD99FF" Offset="0"/>
+                        <GradientStop Color="#FFF0BAF4" Offset="1"/>
+                    </LinearGradientBrush>
+                </ListBox.Background>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+                <ListBoxItem Content="Testing the CropController to see if it will pick up controls as well as images"/>
+            </ListBox>
+        </DockPanel>
+
+    </Grid>
+</Controls:MetroWindow>
+

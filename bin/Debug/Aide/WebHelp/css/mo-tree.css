@@ -1,0 +1,56 @@
+﻿.mo-tree { 
+  border: 0; 
+  white-space: nowrap; 
+  /*padding: 5px 10px;*/ 
+}
+.mo-tree .mo-tree-icon {
+  cursor: pointer; 
+  vertical-align: middle;
+}
+.mo-tree ul {
+  padding:0;
+}
+.mo-tree li {
+  list-style: none; 
+  padding: 1px 0px;
+}
+.mo-tree-collapsed ul {
+  display: none;
+}
+.mo-tree-topic .mo-tree-icon {
+  background: none; 
+  cursor: default;
+}
+
+.mo-tree ul {
+  margin: 0 0 0 0px;
+}
+.mo-tree a:link, .mo-tree a:visited {
+  /*color: #4060A0;*/
+  text-decoration: none; 
+  padding: 1px 2px; 
+}
+.mo-tree a:hover {
+  /*color:#4060A0; 
+  text-decoration:underline;*/ 
+}
+.mo-tree a.selected-node, .mo-tree a.selected-node:visited {
+  /*color:#4060A0;*/ 
+  font-weight:bold;
+}
+.mo-tree ul li ul {
+  margin: 0 0 0 20px;
+}
+.mo-tree .mo-tree-expanded  .mo-tree-icon {
+  background:url("images/mo-tree-e.gif") no-repeat 0 1px;
+}
+.mo-tree .mo-tree-collapsed .mo-tree-icon {
+  background:url("images/mo-tree-c.gif") no-repeat 0 1px;
+}
+.mo-tree .mo-tree-topic     .mo-tree-icon {
+  background:url("images/mo-tree-t.gif") no-repeat 0 1px;
+}
+.mo-tree .mo-tree-icon {
+  width: 20px;
+  height: 18px;
+}
